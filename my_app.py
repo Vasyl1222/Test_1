@@ -4,6 +4,12 @@ from instr import*
 from second_win import*
 
 class MainWin(QWidget):
+    def __init__(self):
+       QWidget.__init__(self)
+       self.set_appear()
+       self.initUi()
+       self.connects()
+
     def set_appear(self):
       self.setWindowTitle(title_text)
       self.resize(win_x,win_y)
@@ -15,10 +21,10 @@ class MainWin(QWidget):
       self.instructions=QLabel(txt_instructions)
       self.layout=QVBoxLayout()
 
-      self.hello_txt.addWidget(self.layout)
-      self.btn_next.addWidget(self.layout)
-      self.instructions.addWidget(self.layout)
-    
+      self.layout.addWidget(self.hello_txt)
+      self.layout.addWidget(self.btn_next)
+      self.layout.addWidget(self.instructions)
+      self.setLayout(self.layout)
     def connects(self):
       self.btn_next.clicked.connect(self.next_click)
     
@@ -28,4 +34,5 @@ class MainWin(QWidget):
 
 app=QApplication([])
 mw=MainWin()
+mw.show()
 app.exec_()

@@ -9,10 +9,11 @@ class MainWin(QWidget):
        self.set_appear()
        self.initUi()
        self.connects()
+       self.show()
 
     def set_appear(self):
       self.setWindowTitle(title_text)
-      self.resize(win_x,win_y)
+      self.resize(win_width,win_height)
       self.move(win_x,win_y)
     
     def initUi(self):

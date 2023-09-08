@@ -1,6 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication,QPushButton,QLabel, QWidget, QHBoxLayout, QVBoxLayout, QGroupBox, QRadioButton, QLineEdit
 from instr import*
+from final_win import*
 
 class TestWin(QWidget):
     def __init__(self):
@@ -34,24 +35,34 @@ class TestWin(QWidget):
         self.line_test = QLineEdit(txt_hinttest2)
         self.line_test3 = QLineEdit(txt_hinttest3)
 
-        self.text_timer=QLabel(txt_timer)
-        self.text_name=QLabel(txt_name)
+        self.txt_timer=QLabel(txt_timer)
+        self.txt_name=QLabel(txt_name)
+        self.line_name=QLineEdit(txt_hintname)
+        self.text_age=QLabel(txt_age)
+        self.line_age=QLineEdit(txt_hintage)
+        self.txt_test1=QLabel(txt_test1)
+        self.btn_test1=QLabel(txt_hintage)
+        self.line_test1=QLineEdit(txt_test2)
+        self.btn_test2=QLabel(txt_starttest2)
+        self.txt_test3=QLabel(txt_test3)
+        self.btn_test3=QLabel
+
 
         self.h_line=QHBoxLayout()
         self.r_line=QVBoxLayout()
         self.l_line=QHBoxLayout()
 
-        self.r_line.addWidget(self.text_timer, alignment=Qt.AlignCenter)
-        self.l_line.addWidget(self.text_name, alignment=Qt.AlignLeft)
+        self.r_line.addWidget(self.txt_timer, alignment=Qt.AlignCenter)
+        self.l_line.addWidget(self.txt_name, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.line_name, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.text_age, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.line_age, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.txt_test1, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.btn_test1, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.line_test1, alignment=Qt.AlignLeft)
-        self.l_line.addWidget(self.text_test2, alignment=Qt.AlignLeft)
+        self.l_line.addWidget(self.txt_test2, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.btn_test2, alignment=Qt.AlignLeft)
-        self.l_line.addWidget(self.text_test3, alignment=Qt.AlignLeft)
+        self.l_line.addWidget(self.txt_test3, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.btn_test3, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.line_test2, alignment=Qt.AlignLeft)
         self.l_line.addWidget(self.line_test3, alignment=Qt.AlignLeft)
@@ -62,4 +73,8 @@ class TestWin(QWidget):
 
     
     def connects(self):
-        pass
+      self.btn_next.clicked.connect(self.next_click)
+    
+    def next_click(self):
+      self.tw=TestWin()
+      self.hide()
